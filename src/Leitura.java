@@ -97,7 +97,7 @@ public class Leitura {
             String turno = campos[16];
             String regiao = campos[17];
             
-            System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
+            // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }
     }
 }

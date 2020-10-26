@@ -3,7 +3,7 @@ public class Main {
         Menu menu = new Menu();
         Leitura leitura = new Leitura();
 
-        leitura.ler();
+        // leitura.ler();
         menu.executa();
     }
 
