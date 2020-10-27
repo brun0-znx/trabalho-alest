@@ -102,7 +102,6 @@ public class Executa {
             
             Acidentes a = new Acidentes(logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
             listaRuas.addAcidente(a);
-
             // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }
     }
