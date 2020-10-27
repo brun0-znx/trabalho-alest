@@ -14,7 +14,7 @@ public class Menu {
 	/**
 	 * Execução da interface do usuário
 	 */
-	public void executa() {
+	public void executaMenu() {
 
 		int opcao;
 

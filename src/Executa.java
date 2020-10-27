@@ -8,8 +8,11 @@ import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Leitura {
+public class Executa {
     
+    private ListaRuas listaRuas;
+    Menu menu = new Menu();
+
     /**
 	 * Lê o arquivo
 	 */
@@ -97,7 +100,15 @@ public class Leitura {
             String turno = campos[16];
             String regiao = campos[17];
             
+            Acidentes a = new Acidentes(logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
+            listaRuas.addAcidente(a);
+
             // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }
+    }
+
+    public void executa() {
+        ler();
+        menu.executaMenu();
     }
 }
