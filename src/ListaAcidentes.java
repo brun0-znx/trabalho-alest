@@ -1,11 +1,11 @@
 public class ListaAcidentes {
 
     private class Node {
-        public Acidentes element;
+        public Acidente element;
         public Node next;
         public Node prev;
 
-        public Node(Acidentes e) {
+        public Node(Acidente e) {
             element = e;
             next = null;
             prev = null;
@@ -33,7 +33,7 @@ public class ListaAcidentes {
      * Adiciona um elemento ao final da lista
      * @param a elemento a ser adicionado ao final da lista
      */
-    public void add(Acidentes a) {
+    public void add(Acidente a) {
         // Primeiro instanciamos um nodo para guardar o elemento
         Node n = new Node(a);
         
@@ -53,9 +53,9 @@ public class ListaAcidentes {
      * Passa para o próximo elemento da lista
      * @return o próximo elemento da lista
      */
-    public Acidentes next() {
+    public Acidente next() {
         if (current != tail) {
-            Acidentes num = current.element;
+            Acidente num = current.element;
             current = current.next;
             return num;
         }

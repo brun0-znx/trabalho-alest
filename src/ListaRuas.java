@@ -12,7 +12,7 @@ public class ListaRuas {
             listaAcidentes = new ListaAcidentes();
         }
 
-        public void add(Acidentes a) {
+        public void add(Acidente a) {
             listaAcidentes.add(a);
         }
         //...
@@ -34,7 +34,7 @@ public class ListaRuas {
         count = 0;
     }
 
-    public void addAcidente(Acidentes a) {
+    public void addAcidente(Acidente a) {
         // percorrer a lista para verificar se ja tem uma
         // rua com a.getNomeLog()
         // se tiver adiciona o acidente no nodo
