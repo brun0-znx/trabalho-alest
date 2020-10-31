@@ -8,8 +8,8 @@ public class ListaRuas {
         public Node prev;
 
         public Node(String x) {
-            nomeLog = x;
-            listaAcidentes = new ListaAcidentes();
+            this.nomeLog = x;
+            //listaAcidentes = new ListaAcidentes();
         }
 
         public void add(Acidente a) {
@@ -18,8 +18,8 @@ public class ListaRuas {
         //...
     }
 
-    private Node header;
-    private Node trailer;
+    private Node head;
+    private Node tail;
     private Node current;
     private int count;
 
@@ -27,14 +27,47 @@ public class ListaRuas {
      * Construtor da lista.
      */
     public ListaRuas() {
-        header = new Node(null);
-        trailer = new Node(null);
-        header.next = trailer;
-        trailer.prev = header;
+        head = null;
+        tail = null;
         count = 0;
     }
 
     public void addAcidente(Acidente a) {
+        //Create a new node  
+        Node newNode = new Node(a.getNome());  
+        boolean ruaIgual = false;
+   
+        //if list is empty, head and tail points to newNode  
+        if(head == null) {  
+            head = tail = newNode;  
+            //head's previous will be null  
+            head.prev = null;  
+            //tail's next will be null  
+            tail.next = null;  
+        }  
+        else {  
+            while(current != null) {  
+                if(a.getNomeLog().equals(newNode.nomeLog)) {
+                    // percorrer a lista para verificar se ja tem uma
+                    // rua com a.getNomeLog()
+                    // se tiver adiciona o acidente no nodo
+                    ruaIgual = true;
+                    break;
+                }
+                current = current.next;  
+            }  
+            if(!ruaIgual) {
+                //add newNode to the end of list. tail->next set to newNode  
+                tail.next = newNode;  
+                //newNode->previous set to tail  
+                newNode.prev = tail;  
+                //newNode becomes new tail  
+                tail = newNode;  
+                //tail's next point to null  
+                tail.next = null;  
+            } 
+            
+        }  
         // percorrer a lista para verificar se ja tem uma
         // rua com a.getNomeLog()
         // se tiver adiciona o acidente no nodo
@@ -42,11 +75,26 @@ public class ListaRuas {
         // coloca o nodo na posicao certa em ordem alfabetica
     }
 
+    public void printNodes() {  
+        //Node current will point to head  
+        current = head;  
+        if(head == null) {  
+            System.out.println("Lista de Ruas está vazia!");  
+            return;  
+        }  
+        System.out.println("Lista de Ruas: ");  
+        while(current != null) {  
+            //Print each node and then go to next.  
+            System.out.print(current.nomeLog + " \n");  
+            current = current.next;  
+        }  
+    }  
+
     /**
      * Reseta para o ínicio da lista
      */
     public void resetNext() {
-        current = header.next;
+        current = head.next;
     }
 
     /**
@@ -57,37 +105,8 @@ public class ListaRuas {
         return count;
     }
 
-    /**
-     * Passa para o próximo elemento da lista
-     * @return o próximo elemento da lista
-     */
-    public String next() {
-        if (current != trailer) {
-            
-            return "";
-        }
-        return null;
-    }
-
-    public String prev() {
-        return "";
-    }
-
     public String getRuaComMaisAcidentes() {
         return "";
     }
-
-    @Override
-    public String toString()
-    {
-        StringBuilder s = new StringBuilder();
-        Node aux = header.next;
-        for (int i = 0; i < count; i++) {
-            s.append(aux.nomeLog);
-            s.append("\n");
-            aux = aux.next;
-        }
-        return s.toString();
-    }    
 
 }

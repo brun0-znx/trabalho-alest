@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class Executa {
     
-    private ListaRuas listaRuas;
+    ListaRuas listaRuas = new ListaRuas();
     Menu menu = new Menu();
 
     /**
@@ -104,6 +104,8 @@ public class Executa {
             listaRuas.addAcidente(a);
             // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }
+        listaRuas.printNodes();
+        
     }
 
     public void executa() {
