@@ -32,7 +32,10 @@ public class ListaRuas {
         count = 0;
     }
 
-    public void addAcidente(Acidente a) {
+    /**
+     * Adiciona as ruas
+     */
+    public void addRua(Acidente a) {
         //Create a new node  
         Node newNode = new Node(a.getNome());  
    
@@ -54,12 +57,14 @@ public class ListaRuas {
             //tail's next point to null  
             tail.next = null;  
         } 
-        
-        // percorrer a lista para verificar se ja tem uma
-        // rua com a.getNomeLog()
-        // se tiver adiciona o acidente no nodo
-        // se nao tiver cria o nodo, add o acidente e 
-        // coloca o nodo na posicao certa em ordem alfabetica
+        ordenaRuas();
+    }
+
+    /**
+     * Ordena as ruas
+     */
+    public void ordenaRuas() {
+
     }
 
     public void printNodes() {  
