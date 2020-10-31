@@ -35,7 +35,6 @@ public class ListaRuas {
     public void addAcidente(Acidente a) {
         //Create a new node  
         Node newNode = new Node(a.getNome());  
-        boolean ruaIgual = false;
    
         //if list is empty, head and tail points to newNode  
         if(head == null) {  
@@ -46,28 +45,16 @@ public class ListaRuas {
             tail.next = null;  
         }  
         else {  
-            while(current != null) {  
-                if(a.getNomeLog().equals(newNode.nomeLog)) {
-                    // percorrer a lista para verificar se ja tem uma
-                    // rua com a.getNomeLog()
-                    // se tiver adiciona o acidente no nodo
-                    ruaIgual = true;
-                    break;
-                }
-                current = current.next;  
-            }  
-            if(!ruaIgual) {
-                //add newNode to the end of list. tail->next set to newNode  
-                tail.next = newNode;  
-                //newNode->previous set to tail  
-                newNode.prev = tail;  
-                //newNode becomes new tail  
-                tail = newNode;  
-                //tail's next point to null  
-                tail.next = null;  
-            } 
-            
-        }  
+            //add newNode to the end of list. tail->next set to newNode  
+            tail.next = newNode;  
+            //newNode->previous set to tail  
+            newNode.prev = tail;  
+            //newNode becomes new tail  
+            tail = newNode;  
+            //tail's next point to null  
+            tail.next = null;  
+        } 
+        
         // percorrer a lista para verificar se ja tem uma
         // rua com a.getNomeLog()
         // se tiver adiciona o acidente no nodo
