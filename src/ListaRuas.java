@@ -3,12 +3,16 @@ public class ListaRuas {
     private class Node {
 
         public String nomeLog;
+        public String log;
         public ListaAcidentes listaAcidentes;
         public Node next;
         public Node prev;
 
-        public Node(String x) {
-            this.nomeLog = x;
+        public Node(String umNomeLog, String umLog) {
+            this.nomeLog = umNomeLog;
+            this.log = umLog;
+            next = null;
+            prev = null;
             //listaAcidentes = new ListaAcidentes();
         }
 
@@ -37,7 +41,7 @@ public class ListaRuas {
      */
     public void addRua(Acidente a) {
         //Create a new node  
-        Node newNode = new Node(a.getNome());  
+        Node newNode = new Node(a.getNomeLog(), a.getLog());  
    
         //if list is empty, head and tail points to newNode  
         if(head == null) {  
@@ -57,14 +61,20 @@ public class ListaRuas {
             //tail's next point to null  
             tail.next = null;  
         } 
-        ordenaRuas();
+        // ordenaRuas(newNode);
     }
 
     /**
      * Ordena as ruas
      */
-    public void ordenaRuas() {
+    public void ordenaRuas(Node aux) {
+        aux = head.next;  
 
+        while (aux != tail) {
+            
+            
+            aux = aux.next;
+        }  
     }
 
     public void printNodes() {  
@@ -77,7 +87,7 @@ public class ListaRuas {
         System.out.println("Lista de Ruas: ");  
         while(current != null) {  
             //Print each node and then go to next.  
-            System.out.print(current.nomeLog + " \n");  
+            System.out.print(current.log + " " + current.nomeLog + " \n");  
             current = current.next;  
         }  
     }  
