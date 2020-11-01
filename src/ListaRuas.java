@@ -2,14 +2,13 @@ public class ListaRuas {
     
     private class Node {
 
-        public String nomeLog;
-        public String log;
+        public String nome;
         public ListaAcidentes listaAcidentes;
         public Node next;
         public Node prev;
 
         public Node(String umNomeCompleto) {
-            this.nomeLog = umNomeCompleto;
+            this.nome = umNomeCompleto;
             next = null;
             prev = null;
             listaAcidentes = new ListaAcidentes();
@@ -48,20 +47,42 @@ public class ListaRuas {
             head.prev = null;  
             //tail's next will be null  
             tail.next = null;  
-            newNode.add(a);
+            //newNode.add(a);
         }  
         else {  
-            Node newNode = new Node(a.getNomeCompleto());
-            //add newNode to the end of list. tail->next set to newNode  
-            tail.next = newNode;  
-            //newNode->previous set to tail  
-            newNode.prev = tail;  
-            //newNode becomes new tail  
-            tail = newNode;  
-            //tail's next point to null  
-            tail.next = null;  
+            if(!encontraRuaIgual(a)) {
+                Node newNode = new Node(a.getNomeCompleto());
+                //add newNode to the end of list. tail->next set to newNode  
+                tail.next = newNode;  
+                //newNode->previous set to tail  
+                newNode.prev = tail;  
+                //newNode becomes new tail  
+                tail = newNode;  
+                //tail's next point to null  
+                tail.next = null;  
+            }
+            
         } 
         // ordenaRuas(newNode);
+    }
+
+    /**
+     * Encontra rua com mesmo nome
+     * @return true se encontrou ou false se não encontrou
+     */
+    public boolean encontraRuaIgual(Acidente a) {
+        Node aux = head.next; 
+
+        while (aux != tail) {
+            if(aux.nome.equals(a.getNomeCompleto())) { 
+                //System.out.println(aux.nome);
+                //System.out.println(a.getNomeCompleto());
+                return true;
+            }
+            aux = aux.next;
+        }  
+       
+        return false;
     }
 
     /**
@@ -87,7 +108,7 @@ public class ListaRuas {
         System.out.println("Lista de Ruas: ");  
         while(current != null) {  
             //Print each node and then go to next.  
-            System.out.print(current.nomeLog + " \n");  
+            System.out.print(current.nome + " \n");  
             current = current.next;  
         }  
     }  
