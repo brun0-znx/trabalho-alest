@@ -20,8 +20,8 @@ public class ListaRuas {
         //...
     }
 
-    private Node head;
-    private Node tail;
+    private Node header;
+    private Node trailer;
     private Node current;
     private int count;
 
@@ -29,8 +29,10 @@ public class ListaRuas {
      * Construtor da lista.
      */
     public ListaRuas() {
-        head = null;
-        tail = null;
+        header = new Node(null);
+        trailer = new Node(null);
+        header.next = trailer;
+        trailer.prev = header;
         count = 0;
     }
 
@@ -39,27 +41,27 @@ public class ListaRuas {
      */
     public void addRua(Acidente a) {
           
-        //if list is empty, head and tail points to newNode  
-        if(head == null) {  
-            Node newNode = new Node(a.getNomeCompleto());
-            head = tail = newNode;  
-            //head's previous will be null  
-            head.prev = null;  
-            //tail's next will be null  
-            tail.next = null;  
+        if(header == null) {  
+            Node n = new Node(a.getNomeCompleto());
+
+            n.next = trailer;
+            n.prev = trailer.prev;
+            n.prev.next = n;
+            trailer.prev = n;
+            
+            count++;
             //newNode.add(a);
         }  
         else {  
             if(!encontraRuaIgual(a)) {
-                Node newNode = new Node(a.getNomeCompleto());
-                //add newNode to the end of list. tail->next set to newNode  
-                tail.next = newNode;  
-                //newNode->previous set to tail  
-                newNode.prev = tail;  
-                //newNode becomes new tail  
-                tail = newNode;  
-                //tail's next point to null  
-                tail.next = null;  
+                Node n = new Node(a.getNomeCompleto());
+            
+                n.next = trailer;
+                n.prev = trailer.prev;
+                n.prev.next = n;
+                trailer.prev = n;
+                
+                count++;
             }
             
         } 
@@ -71,9 +73,9 @@ public class ListaRuas {
      * @return true se encontrou ou false se não encontrou
      */
     public boolean encontraRuaIgual(Acidente a) {
-        Node aux = head.next; 
+        Node aux = header.next; 
 
-        while (aux != tail) {
+        while (aux != trailer) {
             if(aux.nome.equals(a.getNomeCompleto())) { 
                 //System.out.println(aux.nome);
                 //System.out.println(a.getNomeCompleto());
@@ -89,9 +91,9 @@ public class ListaRuas {
      * Ordena as ruas
      */
     public void ordenaRuas(Node aux) {
-        aux = head.next;  
+        aux = header.next;  
 
-        while (aux != tail) {
+        while (aux != trailer) {
             
             
             aux = aux.next;
@@ -100,8 +102,8 @@ public class ListaRuas {
 
     public void printNodes() {  
         //Node current will point to head  
-        current = head;  
-        if(head == null) {  
+        current = header;  
+        if(header == null) {  
             System.out.println("Lista de Ruas está vazia!");  
             return;  
         }  
@@ -117,7 +119,7 @@ public class ListaRuas {
      * Reseta para o ínicio da lista
      */
     public void resetNext() {
-        current = head.next;
+        current = header.next;
     }
 
     /**
