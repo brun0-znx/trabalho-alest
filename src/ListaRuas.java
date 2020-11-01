@@ -39,11 +39,10 @@ public class ListaRuas {
      * Adiciona as ruas
      */
     public void addRua(Acidente a) {
-        
-        Node newNode = new Node(a.getNomeCompleto());  
-
+          
         //if list is empty, head and tail points to newNode  
         if(head == null) {  
+            Node newNode = new Node(a.getNomeCompleto());
             head = tail = newNode;  
             //head's previous will be null  
             head.prev = null;  
@@ -52,6 +51,7 @@ public class ListaRuas {
             newNode.add(a);
         }  
         else {  
+            Node newNode = new Node(a.getNomeCompleto());
             //add newNode to the end of list. tail->next set to newNode  
             tail.next = newNode;  
             //newNode->previous set to tail  
