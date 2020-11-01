@@ -13,7 +13,7 @@ public class ListaRuas {
         }
 
         public void add(Acidente a) {
-            listaAcidentes.add(a);
+            listaAcidentes.addAcidente(a);
         }
         //...
     }

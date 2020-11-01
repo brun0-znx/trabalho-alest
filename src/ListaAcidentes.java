@@ -3,63 +3,57 @@ public class ListaAcidentes {
     private class Node {
         public Acidente element;
         public Node next;
-        public Node prev;
 
         public Node(Acidente e) {
             element = e;
             next = null;
-            prev = null;
         }
 
     }
     
     private Node head;
     private Node tail;
-    private Node current;
     private int count;
     
     /**
      * Construtor da lista.
      */
     public ListaAcidentes() {
-        head = new Node(null);
-        tail = new Node(null);
-        head.next = tail;
-        tail.prev = head;
+        head = null;
+        tail = null;
         count = 0;
     }
 
-    /**
-     * Adiciona um elemento ao final da lista
-     * @param a elemento a ser adicionado ao final da lista
+     /**
+     * Insere um elemento em uma determinada posicao da lista.
+     * @param element elemento a ser inserido
      */
-    public void add(Acidente a) {
-        // Primeiro instanciamos um nodo para guardar o elemento
-        Node n = new Node(a);
+    public void addAcidente(Acidente element) {
+        // Cria o nodo
+        Node n = new Node(element);
         
-        // Fazer o correto encadeamento
-        n.next = tail; // Primeiro "gruda" o novo nodo na lista
-        n.prev = tail.prev;
-        
-        // Depois atualiza os nodos da lista, para que apontem para o novo nodo
-        n.prev.next = n;
-        tail.prev = n;
-        
-        // Atualiza o contador
-        count++;
-    }
-
-    /**
-     * Passa para o próximo elemento da lista
-     * @return o próximo elemento da lista
-     */
-    public Acidente next() {
-        if (current != tail) {
-            Acidente num = current.element;
-            current = current.next;
-            return num;
+        // Insere o nodo criado na lista
+        if (index == 0) { // se insercao no inicio
+            if(count == 0) // se a lista esta vazia
+                tail = n;
+            else
+                n.next = head;
+            head = n;
         }
-        return null;
+        else if (index == count) { // se insercao no final
+            tail.next = n;
+            tail = n;
+        }
+        else { // se insercao no meio
+            Node ant = head;
+            for(int i=0; i<index-1; i++) // "caminha" ate a posicao anterior
+                ant = ant.next;    // a posicao onde o elemento sera inserido
+            n.next = ant.next;
+            ant.next = n;
+        }
+        
+        // Incrementa o contador
+        count++;
     }
 
     /**
