@@ -31,8 +31,8 @@ public class ListaRuas {
      * Construtor da lista.
      */
     public ListaRuas() {
-        head = null;
-        tail = null;
+        head = new Node(null);
+        tail = new Node(null);
         count = 0;
     }
 
