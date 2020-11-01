@@ -30,7 +30,7 @@ public class ListaAcidentes {
      */
     public void addAcidente(Acidente element) {
         // Cria o nodo
-        Node n = new Node(element);
+      /*  Node n = new Node(element);
         
         // Insere o nodo criado na lista
         if (index == 0) { // se insercao no inicio
@@ -53,7 +53,7 @@ public class ListaAcidentes {
         }
         
         // Incrementa o contador
-        count++;
+        count++; */
     }
 
     /**

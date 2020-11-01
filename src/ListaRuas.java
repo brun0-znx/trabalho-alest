@@ -8,16 +8,15 @@ public class ListaRuas {
         public Node next;
         public Node prev;
 
-        public Node(String umNomeLog, String umLog) {
-            this.nomeLog = umNomeLog;
-            this.log = umLog;
+        public Node(String umNomeCompleto) {
+            this.nomeLog = umNomeCompleto;
             next = null;
             prev = null;
-            //listaAcidentes = new ListaAcidentes();
+            listaAcidentes = new ListaAcidentes();
         }
 
         public void add(Acidente a) {
-            listaAcidentes.add(a);
+            listaAcidentes.addAcidente(a);
         }
         //...
     }
@@ -40,9 +39,9 @@ public class ListaRuas {
      * Adiciona as ruas
      */
     public void addRua(Acidente a) {
-        //Create a new node  
-        Node newNode = new Node(a.getNomeLog(), a.getLog());  
-   
+        
+        Node newNode = new Node(a.getNomeCompleto());  
+
         //if list is empty, head and tail points to newNode  
         if(head == null) {  
             head = tail = newNode;  
@@ -50,6 +49,7 @@ public class ListaRuas {
             head.prev = null;  
             //tail's next will be null  
             tail.next = null;  
+            newNode.add(a);
         }  
         else {  
             //add newNode to the end of list. tail->next set to newNode  
@@ -87,7 +87,7 @@ public class ListaRuas {
         System.out.println("Lista de Ruas: ");  
         while(current != null) {  
             //Print each node and then go to next.  
-            System.out.print(current.log + " " + current.nomeLog + " \n");  
+            System.out.print(current.nomeLog + " \n");  
             current = current.next;  
         }  
     }  

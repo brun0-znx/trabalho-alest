@@ -99,8 +99,9 @@ public class Executa {
             String tempo = campos[15];
             String turno = campos[16];
             String regiao = campos[17];
+            String nomeCompleto = logradouro + " " + nomeLog;
             
-            Acidente a = new Acidente(logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
+            Acidente a = new Acidente(nomeCompleto, logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
             listaRuas.addRua(a);
             // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }
