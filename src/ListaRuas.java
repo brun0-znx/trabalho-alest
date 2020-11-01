@@ -102,7 +102,7 @@ public class ListaRuas {
 
     public void printNodes() {  
         //Node current will point to head  
-        current = header;  
+        current = header.next;  
         if(header == null) {  
             System.out.println("Lista de Ruas está vazia!");  
             return;  
