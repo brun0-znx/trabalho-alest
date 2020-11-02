@@ -159,7 +159,10 @@ public class ListaRuas {
         return "";
     }
 
-    public void printar() {
+    /**
+     * Permite a navegação (avançar e retroceder) nos nodos da lista
+     */
+    public void navegar() {
         Node aux = header.next;
         Scanner scan = new Scanner(System.in);
 
@@ -190,10 +193,17 @@ public class ListaRuas {
         }
     }
 
+    /**
+     * Conta o número total de acidentes de moto da lista
+     */
     public void totalAcidentesMoto(int a) {
         moto = moto + a;
     }
 
+    /**
+     * Retorna o número total de acidentes de moto da lista
+     * @return o número total de acidentes de moto da lista
+     */
     public int mostrarTotalAcidentesMoto() {
         return moto;
     }
