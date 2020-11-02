@@ -68,13 +68,12 @@ public class ListaRuas {
 
             }
         }
-        //ordena();
     }
 
     /**
      * Ordena as ruas em ordem alfabética
      */
-    private void ordena() {
+    public void ordenar() {
         Node aux1 = header.next;
         Node aux2 = aux1.next;
         String temp;  
