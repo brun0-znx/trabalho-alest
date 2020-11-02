@@ -69,43 +69,52 @@ public class ListaAcidentes {
         return contaAcidenteMoto;
     }
 
-    public void mostraAcidentes() {
+    public boolean mostraAcidentes() {
         Node aux = head.next;
         Scanner scan = new Scanner(System.in);
         boolean sair = false;
         int opcao = -1;
 
-        for (int i = 1; i < count; i++) {
-            if(!sair) {
-                System.out.print("   " + "Tipo do acidente: " + aux.element.getTipoAcidente() + "\n");
-                System.out.print("   " + "Data e hora: " + aux.element.getData() + "\n");
-                System.out.print("   " + "Dia da semana: " + aux.element.getDiaSemana() + "\n");
-                System.out.print("   " + "Feridos: " + aux.element.getFeridos() + "\n");
-                System.out.print("   " + "Fatais: " + aux.element.getFatais() + "\n");
-                System.out.print("   " + "Automóveis: " + aux.element.getAuto() + "\n");
-                System.out.print("   " + "Táxis: " + aux.element.getTaxis() + "\n");
-                System.out.print("   " + "Lotação: " + aux.element.getLotacao() + "\n");
-                System.out.print("   " + "Ônibus urbano: " + aux.element.getOnibusUrb() + "\n");
-                System.out.print("   " + "Ônibus interestadual: " + aux.element.getOnibusInt() + "\n");
-                System.out.print("   " + "Caminhão: " + aux.element.getCaminhao() + "\n");
-                System.out.print("   " + "Moto: " + aux.element.getMoto() + "\n");
-                System.out.print("   " + "Carroça: " + aux.element.getCarroca() + "\n");
-                System.out.print("   " + "Bicicleta: " + aux.element.getBicicleta() + "\n");
-                System.out.print("   " + "Tempo: " + aux.element.getTempo() + "\n");
-                System.out.print("   " + "Turno: " + aux.element.getTurno() + "\n");
-                System.out.print("   " + "Região: " + aux.element.getRegiao() + "\n");
-                System.out.print("-----------------------------\n");
-            }
-            
-            opcao = scan.nextInt();
-            if(opcao == 3 && (aux.next != null)) {
-                aux = aux.next;
-            } else if(opcao == 3 && (aux.next == null)){
-                System.out.print("Fim da lista de acidentes!\n");
-            } else {
-                break;
+        if(count == 1) {
+            System.out.println("\nEste é o único acidente!");
+            System.out.println("Passando para a próxima rua...!\n");
+            return true;
+        } else {
+            for (int i = 1; i < count; i++) {
+                if(!sair) {
+                    System.out.print("   " + "Tipo do acidente: " + aux.element.getTipoAcidente() + "\n");
+                    System.out.print("   " + "Data e hora: " + aux.element.getData() + "\n");
+                    System.out.print("   " + "Dia da semana: " + aux.element.getDiaSemana() + "\n");
+                    System.out.print("   " + "Feridos: " + aux.element.getFeridos() + "\n");
+                    System.out.print("   " + "Fatais: " + aux.element.getFatais() + "\n");
+                    System.out.print("   " + "Automóveis: " + aux.element.getAuto() + "\n");
+                    System.out.print("   " + "Táxis: " + aux.element.getTaxis() + "\n");
+                    System.out.print("   " + "Lotação: " + aux.element.getLotacao() + "\n");
+                    System.out.print("   " + "Ônibus urbano: " + aux.element.getOnibusUrb() + "\n");
+                    System.out.print("   " + "Ônibus interestadual: " + aux.element.getOnibusInt() + "\n");
+                    System.out.print("   " + "Caminhão: " + aux.element.getCaminhao() + "\n");
+                    System.out.print("   " + "Moto: " + aux.element.getMoto() + "\n");
+                    System.out.print("   " + "Carroça: " + aux.element.getCarroca() + "\n");
+                    System.out.print("   " + "Bicicleta: " + aux.element.getBicicleta() + "\n");
+                    System.out.print("   " + "Tempo: " + aux.element.getTempo() + "\n");
+                    System.out.print("   " + "Turno: " + aux.element.getTurno() + "\n");
+                    System.out.print("   " + "Região: " + aux.element.getRegiao() + "\n");
+                    System.out.print("-----------------------------\n");
+                }
+                
+                opcao = scan.nextInt();
+                if(opcao == 3 && (aux.next != null)) {
+                    aux = aux.next;
+                } else if(opcao == 3 && (aux.next == null)){
+                    System.out.print("\nFim da lista de acidentes desta rua!");
+                    System.out.print("Passando para a próxima rua...\n");
+                    return true;
+                } else {
+                    break;
+                }
             }
         }
+        return false;
     }
 
     public void mostraPrimeiroAcidente() {

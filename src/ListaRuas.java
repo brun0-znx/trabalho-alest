@@ -176,7 +176,9 @@ public class ListaRuas {
                 opcao = scan.nextInt();
                 //aux.listaAcidentes.mostraAcidentes(opcao);
                 if(opcao == 3) {
-                    aux.listaAcidentes.mostraAcidentes();
+                    if(aux.listaAcidentes.mostraAcidentes()) {
+                        opcao = 1;
+                    }
                 }
             }
             
