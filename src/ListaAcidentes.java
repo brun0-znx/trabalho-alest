@@ -100,6 +100,8 @@ public class ListaAcidentes {
             opcao = scan.nextInt();
             if(opcao == 3 && (aux.next != null)) {
                 aux = aux.next;
+            } else if(opcao == 3 && (aux.next == null)){
+                System.out.print("Fim da lista de acidentes!\n");
             } else {
                 break;
             }

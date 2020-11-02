@@ -168,7 +168,7 @@ public class ListaRuas {
         while(aux != trailer.next) {
             fimLista = false;
             if(aux.nome == null) {
-                System.out.println("Fim da lista!");
+                System.out.println("Fim da lista de ruas!");
                 fimLista = true;
             } else {
                 System.out.println(aux.nome + ":");
