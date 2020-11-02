@@ -64,7 +64,7 @@ public class ListaRuas {
     }
 
     /**
-     * Insere um acidente em uma determinada posicao da lista
+     * Insere um acidente no início da lista
      * @param a acidente a ser inserido
      */
     public void addRua(Acidente a) {
