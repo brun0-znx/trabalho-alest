@@ -22,7 +22,7 @@ public class Menu {
 			apresentaMenuOpcoes();
 			System.out.print("Digite a opção desejada: ");
 			opcao = leInteiro();
-			System.out.println("*************************************************");
+			System.out.println("*************************************************\n");
 			switch (opcao) {
 				case 1:
 					System.out.println("Sistema de consultas sobre os acidentes de trânsito de Porto Alegre");

@@ -162,8 +162,8 @@ public class ListaRuas {
         int opcao = -1;
         boolean fimLista = false;
 
-        System.out.println("1 - Avançar RUA | 2 - Retroceder RUA | Qualquer número - VOLTAR");
-        System.out.println("3 - Avançar ACIDENTE | Qualquer número - VOLTAR");
+        System.out.println("1 - Avançar RUA | 2 - Retroceder RUA | 3 - Avançar ACIDENTE\n");
+        System.out.println("Qualquer número - VOLTAR\n");
 
         while(aux != trailer.next) {
             fimLista = false;
