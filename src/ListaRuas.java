@@ -44,8 +44,12 @@ public class ListaRuas {
      */
     public void addRua(Acidente a) {
         Node n = new Node(a.getNomeCompleto());
+        Node aux = header.next;
+        String novo = a.getNomeCompleto();
+        boolean adicionado = false;
+        int index = 0;
 
-        if(header == null) {  
+        if(count == 0) {  
             n.next = trailer;
             n.prev = trailer.prev;
             n.prev.next = n;
@@ -56,16 +60,32 @@ public class ListaRuas {
         }  
         else {  
             if(!encontraRuaIgual(a)) {
-                n.next = trailer;
-                n.prev = trailer.prev;
-                n.prev.next = n;
-                trailer.prev = n;
-                
-                count++;
-                n.add(a);
-            }
-            if(encontraRuaIgual(a)) {
-
+                while(aux != trailer && adicionado == false) {
+                    if(aux.nome.compareTo(novo) > 0) { // s2 vem antes
+                        Node ref = getNodeRef(index); // "caminha" ate a posicao index
+                        // Insere antes do nodo referenciado por ref
+                        n.next = ref;      // \ primeiro "gruda" o nodo na lista
+                        n.prev = ref.prev; // /
+                        n.prev.next = n;
+                        ref.prev = n;
+                        count++;
+                        n.add(a);
+                        adicionado = true;
+                    } 
+                    aux = aux.next;
+                    index++;
+                }
+                if(!adicionado) {
+                    n.next = trailer;
+                    n.prev = trailer.prev;
+                    n.prev.next = n;
+                    trailer.prev = n;
+                    
+                    count++;
+                    n.add(a);
+                }
+            } else {
+                // se encontrar a rua igual
             }
         }
     }
@@ -73,15 +93,22 @@ public class ListaRuas {
     /**
      * Ordena as ruas em ordem alfabética
      */
-    public void ordenar() {
+    public void ondeAdiciona() {
         Node q = header.next;
         Node r = q.next;
 
-        while(q != trailer) {
-            System.out.println(q.nome);
-            q = q.next;
+        if(count == 0 || count == 1) {
+            // Lista já ordenada
+        } else {
+            while(q != trailer) {
+                while(r != trailer) {
+    
+                    r = r.next;
+                }
+    
+                q = q.next;
+            }
         }
-          
     }
 
     /**

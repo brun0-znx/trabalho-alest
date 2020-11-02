@@ -109,7 +109,7 @@ public class Executa {
             }
             // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }
-        listaRuas.ordenar();
+        System.out.println(listaRuas.size());
     }
 
     public void executa() {
