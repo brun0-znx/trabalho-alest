@@ -205,6 +205,19 @@ public class ListaRuas {
         return moto;
     }
 
+    public boolean diaSemanaMaisAcidentes(ListaRuas listaRuas, String x) {
+        Node aux = header.next;
+
+        while(aux != trailer) {
+            if(aux.nome.equals(x)) {
+                System.out.println(aux.nome);
+                return true;
+            }
+            aux = aux.next;
+        }
+        return false;
+    }
+
     /**
      * Retorna a rua com mais acidentes 
      * @return nome da rua com mais acidentes

@@ -32,7 +32,7 @@ public class Menu {
 					listaRuas.navegar(listaRuas);
 					break;
 				case 3:
-					menuConsultas();
+					menuConsultas(listaRuas);
 					break;
 				case 4:
 					System.out.println(listaRuas.mostrarTotalAcidentesMoto());
@@ -92,7 +92,34 @@ public class Menu {
 	/**
 	 * Submenu para consultas
 	 */
-	private void menuConsultas() {
+	private void menuConsultas(ListaRuas listaRuas) {		
+		int opcao = -1;
+
+		do {
+			apresentaMenuOpcoesConsultas();
+			opcao = leInteiro();
+			System.out.println("*************************************************");
+			switch (opcao) {
+				case 1:
+					// TODO: método para mostrar RUA/AVENIDA/TRAVESSIA com mais acidentes  
+				case 2:
+					String x = "";
+					System.out.println("\nDigite o nome da 'rua' que você deseja buscar o dia da semana que mais teve acidentes\n");
+					x = scan.nextLine();
+					if(!listaRuas.diaSemanaMaisAcidentes(listaRuas, x)) {
+						System.out.println("\nNão foi encontrado nada com este nome!\n");
+					}
+					break;
+				case 3:
+					System.out.println("Voltando...");
+					break;
+				default:
+					System.out.println("Esta opção não existe! Digite novamente.");
+			}
+		} while (opcao != 3);
+	}
+
+	private void apresentaMenuOpcoesConsultas() {
 		System.out.println("\n                                         ### Você selecionou: Consultas! ###");
 		System.out
 				.println("                   ========================================================================");
@@ -104,25 +131,6 @@ public class Menu {
 				.println("                  |     3 - Voltar para o menu principal                                  |");
 		System.out.println(
 				"                   ========================================================================\n");
-		
-		int opcao = -1;
-
-		do {
-			opcao = leInteiro();
-			System.out.println("*************************************************");
-			switch (opcao) {
-				case 1:
-					// TODO: método para mostrar RUA/AVENIDA/TRAVESSIA com mais acidentes  
-				case 2:
-					// TODO: método para mostrar dia da semana em X local que mais ocorreram acidentes   
-					break;
-				case 3:
-					System.out.println("Voltando...");
-					break;
-				default:
-					System.out.println("Esta opção não existe! Digite novamente.");
-			}
-		} while (opcao != 3);
 	}
 
 }
