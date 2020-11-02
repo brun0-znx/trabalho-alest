@@ -37,33 +37,54 @@ public class ListaRuas {
     }
 
     /**
-     * Adiciona as ruas
+     * Adiciona um acidente ao final da lista
+     * @param a acidente a ser adicionado ao final da lista
      */
-    public void addRua(Acidente a) {
-        Node n = new Node(a.getNomeCompleto());
-
-        if(header == null) {  
-            n.next = trailer;
+    public void addRuaFinal(Acidente a) {
+        if(header == null) { 
+            Node n = new Node(a.getNomeCompleto());
+            n.next = trailer; 
             n.prev = trailer.prev;
             n.prev.next = n;
             trailer.prev = n;
-            
             count++;
             //newNode.add(a);
-        }  
-        else {  
+        } else {
             if(!encontraRuaIgual(a)) {
-                n.next = trailer;
+                Node n = new Node(a.getNomeCompleto());
+                n.next = trailer; 
                 n.prev = trailer.prev;
                 n.prev.next = n;
                 trailer.prev = n;
-                
                 count++;
                 //newNode.add(a);
             }
         }
         //ordena();
     }
+
+    /**
+     * Insere um acidente em uma determinada posicao da lista
+     * @param a acidente a ser inserido
+     */
+    public void addRua(Acidente a) {
+        
+        if(0 == count) { //se insercao no final
+            this.addRuaFinal(a);
+        }
+        else {
+            if(!encontraRuaIgual(a)) {
+                Node newNode = new Node(a.getNomeCompleto()); // cria o nodo
+                Node aux = getNodeRef(0); // "caminha" ate a posicao index
+                // Insere antes do nodo referenciado por aux
+                newNode.next = aux;      // \ primeiro "gruda" o nodo na lista
+                newNode.prev = aux.prev; // /
+                newNode.prev.next = newNode;
+                aux.prev = newNode;
+                count++;
+            }
+        }  
+   }
 
     /**
      * Ordena as ruas em ordem alfabética
