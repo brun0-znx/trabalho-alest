@@ -162,16 +162,26 @@ public class ListaRuas {
         Scanner scan = new Scanner(System.in);
 
         int opcao = -1;
+        boolean fimLista = false;
 
         System.out.println("1 - Avançar | 2 - Retroceder | Qualquer número - voltar");
 
         while(aux != trailer) {
-            System.out.println(aux.nome);
+            fimLista = false;
+            if(aux.nome == null) {
+                System.out.println("Fim da lista!");
+                fimLista = true;
+            } else {
+                System.out.println(aux.nome);
+            }
+            
             opcao = scan.nextInt();
             if(opcao == 1) {
                 aux = aux.next;
-            } else if(opcao == 2){
+            } else if(opcao == 2 && fimLista == false) {
                 aux = aux.prev;
+            } else if(opcao == 2 && fimLista == true) {
+                return;
             } else {
                 break;
             }
