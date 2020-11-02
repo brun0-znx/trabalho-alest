@@ -100,8 +100,38 @@ public class Executa {
             String turno = campos[16];
             String regiao = campos[17];
             String nomeCompleto = logradouro + " " + nomeLog;
+
+            int totalAcidentes = 0;
+
+            if(auto > 0) {
+                totalAcidentes = totalAcidentes + auto;
+            }
+            if(taxis > 0) {
+                totalAcidentes = totalAcidentes + taxis;
+            }
+            if(lotacao > 0) {
+                totalAcidentes = totalAcidentes + lotacao;
+            }
+            if(onibusUrb > 0) {
+                totalAcidentes = totalAcidentes + onibusUrb;
+            }
+            if(onibusInt > 0) {
+                totalAcidentes = totalAcidentes + onibusInt;
+            }
+            if(caminhao > 0) {
+                totalAcidentes = totalAcidentes + caminhao;
+            }
+            if(moto > 0) {
+                totalAcidentes = totalAcidentes + moto;
+            }
+            if(carroca > 0) {
+                totalAcidentes = totalAcidentes + carroca;
+            }
+            if(bicicleta > 0) {
+                totalAcidentes = totalAcidentes + bicicleta;
+            }
             
-            Acidente a = new Acidente(nomeCompleto,logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
+            Acidente a = new Acidente(totalAcidentes,nomeCompleto,logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
             listaRuas.addRua(a);
 
             if(moto > 0) {

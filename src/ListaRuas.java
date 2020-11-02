@@ -219,11 +219,22 @@ public class ListaRuas {
     }
 
     /**
-     * Retorna a rua com mais acidentes 
-     * @return nome da rua com mais acidentes
+     * Retorna o nome da rua que tem mais acidentes 
      */
-    public String getRuaComMaisAcidentes() {
-        return "";
+    public void getRuaComMaisAcidentes(ListaRuas listaRuas) {
+        Node aux = header.next;
+        int numeroMaximo = 0;
+        String nomeRua = "";
+
+        while(aux != trailer) {
+            if(aux.listaAcidentes.getTotalAcidentes() > numeroMaximo) {
+                numeroMaximo = aux.listaAcidentes.getTotalAcidentes();
+                nomeRua = aux.nome;
+            }
+            aux = aux.next;
+        }
+        System.out.println("A 'rua' com mais acidentes é: " + nomeRua);
+        System.out.println("Com " + numeroMaximo + " acidentes!");
     } 
 
 }

@@ -101,7 +101,8 @@ public class Menu {
 			System.out.println("*************************************************");
 			switch (opcao) {
 				case 1:
-					// TODO: método para mostrar RUA/AVENIDA/TRAVESSIA com mais acidentes  
+					listaRuas.getRuaComMaisAcidentes(listaRuas);
+					break;
 				case 2:
 					String x = "";
 					System.out.println("\nDigite o nome da 'rua' que você deseja buscar o dia da semana que mais teve acidentes\n");

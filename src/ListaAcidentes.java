@@ -15,7 +15,6 @@ public class ListaAcidentes {
     private Node head;
     private Node tail;
     private int count;
-    private int sizeTotal;
     
     /**
      * Construtor da lista
@@ -32,6 +31,7 @@ public class ListaAcidentes {
      */
     public void addAcidente(Acidente element) {
         Node n = new Node(element);
+    
         if (head == null) {
             head = n;
         } else {
@@ -39,6 +39,22 @@ public class ListaAcidentes {
         }
         tail = n;
         count++;
+    }
+
+    /**
+    * Retorna o número total de acidentes da lista de acidentes (rua)
+    * @return o número total de acidentes da lista de acidentes (rua)
+    */
+    public int getTotalAcidentes() {
+        int contaAcidentes = 0;
+        Node aux = head;
+        for(int i = 0; i < count; i++) {
+            if(aux.element.getTotalAcidentes() > 0) {
+                contaAcidentes++;
+            }
+            aux = aux.next;
+        }
+        return contaAcidentes;
     }
 
     /**
