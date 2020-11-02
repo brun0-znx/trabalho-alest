@@ -74,27 +74,14 @@ public class ListaRuas {
      * Ordena as ruas em ordem alfabética
      */
     public void ordenar() {
-        Node aux1 = header.next;
-        Node aux2 = aux1.next;
-        String temp;  
+        Node q = header.next;
+        Node r = q.next;
 
-        if(count == 0 || count == 1) {
-            return;
-        } else {
-            for(int i = 0; i < count; i++) {
-               
-                if(aux1.nome.compareTo(aux2.nome) < 0) {
-                    //System.out.print(aux1.nome);
-                    //System.out.print(aux2.nome);
-                    temp = aux1.nome;
-                    aux1.nome = aux2.nome;
-                    aux2.nome = temp;
-                    
-                    aux1 = aux1.next;
-                    aux2 = aux2.prev;
-                }
-            }
+        while(q != trailer) {
+            System.out.println(q.nome);
+            q = q.next;
         }
+          
     }
 
     /**

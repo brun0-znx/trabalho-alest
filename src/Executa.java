@@ -101,15 +101,15 @@ public class Executa {
             String regiao = campos[17];
             String nomeCompleto = logradouro + " " + nomeLog;
             
-            Acidente a = new Acidente(nomeCompleto, logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
+            Acidente a = new Acidente(nomeCompleto,logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
             listaRuas.addRua(a);
 
             if(moto > 0) {
                 listaRuas.totalAcidentesMoto(moto);
             }
-            
             // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }
+        listaRuas.ordenar();
     }
 
     public void executa() {
