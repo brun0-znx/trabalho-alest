@@ -14,7 +14,7 @@ public class Menu {
 	/**
 	 * Execução da interface do usuário
 	 */
-	public void executaMenu() {
+	public void executaMenu(ListaRuas listaRuas) {
 
 		int opcao;
 
@@ -28,7 +28,7 @@ public class Menu {
 					System.out.println("Sistema de consultas sobre os acidentes de trânsito de Porto Alegre");
 					break;
 				case 2:
-					menuNavegar();
+					listaRuas.printar();
 					break;
 				case 3:
 					menuConsultas();
@@ -114,42 +114,6 @@ public class Menu {
 					// TODO: método para mostrar RUA/AVENIDA/TRAVESSIA com mais acidentes  
 				case 2:
 					// TODO: método para mostrar dia da semana em X local que mais ocorreram acidentes   
-					break;
-				case 3:
-					System.out.println("Voltando...");
-					break;
-				default:
-					System.out.println("Esta opção não existe! Digite novamente.");
-			}
-		} while (opcao != 3);
-	}
-
-	/**
-	 * Submenu para navegar
-	 */
-	private void menuNavegar() {
-		System.out.println("\n                                         ### Você selecionou: Navegar! ###");
-		System.out
-				.println("                   ========================================================================");
-		System.out
-				.println("                  |     1 - Avançar                                                       |");
-		System.out
-				.println("                  |     2 - Retroceder                                                    |");
-		System.out
-				.println("                  |     3 - Voltar para o menu principal                                  |");
-		System.out.println(
-				"                   ========================================================================\n");
-		
-		int opcao = -1;
-
-		do {
-			opcao = leInteiro();
-			System.out.println("*************************************************");
-			switch (opcao) {
-				case 1:
-					// TODO: avancar um na lista 
-				case 2:
-					// TODO: retroceder um na lista 
 					break;
 				case 3:
 					System.out.println("Voltando...");

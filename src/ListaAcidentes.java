@@ -8,7 +8,6 @@ public class ListaAcidentes {
             element = e;
             next = null;
         }
-
     }
     
     private Node head;
@@ -64,8 +63,7 @@ public class ListaAcidentes {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         StringBuilder s = new StringBuilder();
         Node aux = head.next;
         for (int i = 0; i < count; i++) {

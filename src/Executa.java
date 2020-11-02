@@ -103,14 +103,13 @@ public class Executa {
             
             Acidente a = new Acidente(nomeCompleto, logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
             listaRuas.addRua(a);
+            
             // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }
-        System.out.println(listaRuas);
-        
     }
 
     public void executa() {
         ler();
-        menu.executaMenu();
+        menu.executaMenu(listaRuas);
     }
 }

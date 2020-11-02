@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class ListaRuas {
     
     private class Node {
@@ -49,7 +50,7 @@ public class ListaRuas {
             trailer.prev = n;
             
             count++;
-            //newNode.add(a);
+            n.add(a);
         }  
         else {  
             if(!encontraRuaIgual(a)) {
@@ -59,7 +60,10 @@ public class ListaRuas {
                 trailer.prev = n;
                 
                 count++;
-                //newNode.add(a);
+                n.add(a);
+            }
+            if(encontraRuaIgual(a)) {
+
             }
         }
         //ordena();
@@ -146,12 +150,32 @@ public class ListaRuas {
                 aux = aux.prev;
             }
         }
-        
         return aux;
     }
 
     public String getRuaComMaisAcidentes() {
         return "";
+    }
+
+    public void printar() {
+        Node aux = header.next;
+        Scanner scan = new Scanner(System.in);
+
+        int opcao = -1;
+
+        System.out.println("1 - Avançar | 2 - Retroceder | Qualquer número - voltar");
+
+        while(aux != trailer) {
+            System.out.println(aux.nome);
+            opcao = scan.nextInt();
+            if(opcao == 1) {
+                aux = aux.next;
+            } else if(opcao == 2){
+                aux = aux.prev;
+            } else {
+                break;
+            }
+        }
     }
 
     @Override
