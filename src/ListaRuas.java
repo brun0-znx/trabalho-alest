@@ -69,18 +69,27 @@ public class ListaRuas {
      * Ordena as ruas em ordem alfabética
      */
     private void ordena() {
-        current = null;
-        Node index = null;  
+        Node aux1 = header.next;
+        Node aux2 = aux1.next;
         String temp;  
-        
-        //Current will point to head  
-        for(current = header; current.next != null; current = current.next) {  
-            //Index will point to node next to current  
-            for(index = current.next; index != null; index = index.next) {  
-                //If current's data is greater than index's data, swap the data of current and index  
-                
-            }  
-        }  
+
+        if(count == 0 || count == 1) {
+            return;
+        } else {
+            for(int i = 0; i < count; i++) {
+               
+                if(aux1.nome.compareTo(aux2.nome) < 0) {
+                    //System.out.print(aux1.nome);
+                    //System.out.print(aux2.nome);
+                    temp = aux1.nome;
+                    aux1.nome = aux2.nome;
+                    aux2.nome = temp;
+                    
+                    aux1 = aux1.next;
+                    aux2 = aux2.prev;
+                }
+            }
+        }
     }
 
     /**
