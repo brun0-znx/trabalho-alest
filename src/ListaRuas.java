@@ -62,7 +62,7 @@ public class ListaRuas {
                 //newNode.add(a);
             }
         }
-        ordena();
+        //ordena();
     }
 
     /**
@@ -98,9 +98,10 @@ public class ListaRuas {
      */
     public boolean encontraRuaIgual(Acidente a) {
         Node aux = header.next; 
+        String nome = a.getNomeCompleto();
 
-        while (aux != trailer) {
-            if(aux.nome.equals(a.getNomeCompleto())) { 
+        while(aux != trailer) {
+            if(aux.nome.equals(nome)) { 
                 //System.out.println(aux.nome);
                 //System.out.println(a.getNomeCompleto());
                 return true;
