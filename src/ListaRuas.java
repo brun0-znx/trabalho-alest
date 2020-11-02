@@ -40,7 +40,7 @@ public class ListaRuas {
     }
 
     /**
-     * Adiciona as ruas
+     * Adiciona as ruas e já ordena em ordem alfabética
      */
     public void addRua(Acidente a) {
         Node n = new Node(a.getNomeCompleto());
@@ -86,27 +86,6 @@ public class ListaRuas {
                 }
             } else {
                 // se encontrar a rua igual
-            }
-        }
-    }
-
-    /**
-     * Ordena as ruas em ordem alfabética
-     */
-    public void ondeAdiciona() {
-        Node q = header.next;
-        Node r = q.next;
-
-        if(count == 0 || count == 1) {
-            // Lista já ordenada
-        } else {
-            while(q != trailer) {
-                while(r != trailer) {
-    
-                    r = r.next;
-                }
-    
-                q = q.next;
             }
         }
     }
