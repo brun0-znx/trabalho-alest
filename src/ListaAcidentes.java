@@ -18,7 +18,7 @@ public class ListaAcidentes {
     private int sizeTotal;
     
     /**
-     * Construtor da lista.
+     * Construtor da lista
      */
     public ListaAcidentes() {
         head = null;
@@ -27,7 +27,7 @@ public class ListaAcidentes {
     }
 
     /**
-     * Insere um elemento em uma determinada posicao da lista.
+     * Insere um elemento em uma determinada posicao da lista
      * @param element elemento a ser inserido
      */
     public void addAcidente(Acidente element) {

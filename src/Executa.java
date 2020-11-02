@@ -112,6 +112,9 @@ public class Executa {
         //System.out.println(listaRuas.size());
     }
 
+    /**
+     * Chama os métodos para executar o programa
+     */
     public void executa() {
         ler();
         menu.executaMenu(listaRuas);
