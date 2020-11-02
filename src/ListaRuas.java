@@ -18,6 +18,10 @@ public class ListaRuas {
         public void add(Acidente a) {
             listaAcidentes.addAcidente(a);
         }
+
+        public void mostraInformacoes() {
+            System.out.println(listaAcidentes.toString());
+        }
         
     }
 
@@ -119,13 +123,6 @@ public class ListaRuas {
     }
 
     /**
-     * Reseta para o ínicio da lista
-     */
-    public void resetNext() {
-        current = header.next;
-    }
-
-    /**
      * Retorna o número de elementos da lista
      * @return o número de elementos da lista
      */
@@ -155,14 +152,10 @@ public class ListaRuas {
         return aux;
     }
 
-    public String getRuaComMaisAcidentes() {
-        return "";
-    }
-
     /**
      * Permite a navegação (avançar e retroceder) nos nodos da lista
      */
-    public void navegar() {
+    public void navegar(ListaRuas listaRuas) {
         Node aux = header.next;
         Scanner scan = new Scanner(System.in);
 
@@ -177,7 +170,8 @@ public class ListaRuas {
                 System.out.println("Fim da lista!");
                 fimLista = true;
             } else {
-                System.out.println(aux.nome);
+                System.out.println(aux.nome + ":");
+                System.out.println(aux.listaAcidentes.toString());
             }
             
             opcao = scan.nextInt();
@@ -206,6 +200,14 @@ public class ListaRuas {
      */
     public int mostrarTotalAcidentesMoto() {
         return moto;
+    }
+
+    /**
+     * Retorna a rua com mais acidentes 
+     * @return nome da rua com mais acidentes
+     */
+    public String getRuaComMaisAcidentes() {
+        return "";
     }
 
     @Override

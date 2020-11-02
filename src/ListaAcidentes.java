@@ -8,6 +8,11 @@ public class ListaAcidentes {
             element = e;
             next = null;
         }
+
+        public String getTempo() {
+            return element.getTempo();
+        }
+            
     }
     
     private Node head;
@@ -54,7 +59,7 @@ public class ListaAcidentes {
         int contaAcidenteMoto = 0;
         Node aux = head;
         for(int i = 0; i < count; i++) {
-            if(aux.element.getAcidenteMoto() > 0) {
+            if(aux.element.getMoto() > 0) {
                 contaAcidenteMoto++;
             }
             aux = aux.next;
@@ -65,10 +70,10 @@ public class ListaAcidentes {
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
-        Node aux = head.next;
+        Node aux = head;
         for (int i = 0; i < count; i++) {
-            s.append(aux.element.toString());
-            s.append("\n");
+            s.append(aux.element.getTempo());
+            s.append(" ; ");
             aux = aux.next;
         }
         return s.toString();

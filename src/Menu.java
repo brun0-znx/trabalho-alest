@@ -28,7 +28,7 @@ public class Menu {
 					System.out.println("Sistema de consultas sobre os acidentes de trânsito de Porto Alegre");
 					break;
 				case 2:
-					listaRuas.navegar();
+					listaRuas.navegar(listaRuas);
 					break;
 				case 3:
 					menuConsultas();
