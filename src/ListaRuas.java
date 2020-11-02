@@ -40,10 +40,9 @@ public class ListaRuas {
      * Adiciona as ruas
      */
     public void addRua(Acidente a) {
-          
-        if(header == null) {  
-            Node n = new Node(a.getNomeCompleto());
+        Node n = new Node(a.getNomeCompleto());
 
+        if(header == null) {  
             n.next = trailer;
             n.prev = trailer.prev;
             n.prev.next = n;
@@ -54,18 +53,49 @@ public class ListaRuas {
         }  
         else {  
             if(!encontraRuaIgual(a)) {
-                Node n = new Node(a.getNomeCompleto());
-            
                 n.next = trailer;
                 n.prev = trailer.prev;
                 n.prev.next = n;
                 trailer.prev = n;
                 
                 count++;
+                //newNode.add(a);
             }
-            
-        } 
-        // ordenaRuas(newNode);
+        }
+        ordena();
+    }
+
+    /**
+     * Ordena as ruas em ordem alfabética
+     */
+    private void ordena() {
+        /*Node aux = header.next; 
+                
+                while(aux != trailer) {
+                    
+                    String s1 = a.getNomeCompleto();
+                    String s2 = aux.nome;
+                    if(s1.compareTo(s2) < 0) {  // s1 vem antes de s2
+                        
+                        n.next = aux;      
+                        n.prev = aux.prev; 
+                        n.prev.next = n;
+                        aux.prev = n;
+
+                        count++;
+                        break;
+                    }
+                    if(aux.next == trailer) { 
+                        n.next = trailer;
+                        n.prev = trailer.prev;
+                        n.prev.next = n;
+                        trailer.prev = n;
+                
+                        count++;
+                        break;
+                    }
+                    aux = aux.next;
+                }  */
     }
 
     /**
@@ -87,29 +117,10 @@ public class ListaRuas {
         return false;
     }
 
-    /**
-     * Ordena as ruas
-     */
-    public void ordenaRuas(Node aux) {
-        aux = header.next;  
-
-        while (aux != trailer) {
-            
-            
-            aux = aux.next;
-        }  
-    }
-
     public void printNodes() {  
-        //Node current will point to head  
         current = header.next;  
-        if(header == null) {  
-            System.out.println("Lista de Ruas está vazia!");  
-            return;  
-        }  
         System.out.println("Lista de Ruas: ");  
         while(current != null) {  
-            //Print each node and then go to next.  
             System.out.print(current.nome + " \n");  
             current = current.next;  
         }  
@@ -128,6 +139,29 @@ public class ListaRuas {
      */
     public int size() {
         return count;
+    }
+
+    /**
+     * Retorna a referencia para o nodo da posicao index
+     * @return a referencia para o nodo da posicao index
+     */
+    private Node getNodeRef(int index) {
+        Node aux = null;
+        
+        if(index<count/2) { // percorre do inicio para o meio
+            aux = header.next; // faz aux apontar para o primeiro elemento da lista
+            for (int i=0; i<index; i++) {
+                aux = aux.next;
+            }
+        }
+        else { // percorre do fim para o meio
+            aux = trailer.prev;
+            for(int i=count-1; i>index; i--) {
+                aux = aux.prev;
+            }
+        }
+        
+        return aux;
     }
 
     public String getRuaComMaisAcidentes() {
