@@ -34,7 +34,7 @@ public class Menu {
 					menuConsultas();
 					break;
 				case 4:
-
+					System.out.println(listaRuas.mostrarTotalAcidentesMoto());
 					break;
 				case 5:
 					System.out.println("Saindo...");

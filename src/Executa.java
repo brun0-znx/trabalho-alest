@@ -43,7 +43,7 @@ public class Executa {
         // Mude numLinhas para algum numero pequeno para executar testes mais rapidamente.
         // Ex:
         // for (int i = 0; i < 50; i++) {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < numLinhas; i++) {
             
             String[] campos = linhas[i].split(";"); // divide a string pelo espaco em branco
 
@@ -103,6 +103,10 @@ public class Executa {
             
             Acidente a = new Acidente(nomeCompleto, logradouro,nomeLog,tipoAcidente,data,diaSemana,feridos,fatais,auto,taxis,lotacao,onibusUrb,onibusInt,caminhao,moto,carroca,bicicleta,tempo,turno,regiao);
             listaRuas.addRua(a);
+
+            if(moto > 0) {
+                listaRuas.totalAcidentesMoto(moto);
+            }
             
             // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }

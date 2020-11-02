@@ -25,6 +25,7 @@ public class ListaRuas {
     private Node trailer;
     private Node current;
     private int count;
+    private int moto;
 
     /**
      * Construtor da lista.
@@ -35,6 +36,7 @@ public class ListaRuas {
         header.next = trailer;
         trailer.prev = header;
         count = 0;
+        moto = 0;
     }
 
     /**
@@ -186,6 +188,14 @@ public class ListaRuas {
                 break;
             }
         }
+    }
+
+    public void totalAcidentesMoto(int a) {
+        moto = moto + a;
+    }
+
+    public int mostrarTotalAcidentesMoto() {
+        return moto;
     }
 
     @Override
