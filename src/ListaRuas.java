@@ -150,7 +150,7 @@ public class ListaRuas {
     /**
      * Permite a navegação (avançar e retroceder) nos nodos da lista
      */
-    public void navegar(ListaRuas listaRuas) {
+    public void navegar() {
         Node aux = header.next;
         Scanner scan = new Scanner(System.in);
 
@@ -205,23 +205,10 @@ public class ListaRuas {
         return moto;
     }
 
-    public boolean diaSemanaMaisAcidentes(ListaRuas listaRuas, String x) {
-        Node aux = header.next;
-
-        while(aux != trailer) {
-            if(aux.nome.equals(x)) {
-                System.out.println(aux.nome);
-                return true;
-            }
-            aux = aux.next;
-        }
-        return false;
-    }
-
     /**
      * Retorna o nome da rua que tem mais acidentes 
      */
-    public void getRuaComMaisAcidentes(ListaRuas listaRuas) {
+    public void getRuaComMaisAcidentes() {
         Node aux = header.next;
         int numeroMaximo = 0;
         String nomeRua = "";

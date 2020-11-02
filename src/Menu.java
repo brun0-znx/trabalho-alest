@@ -29,7 +29,7 @@ public class Menu {
 					System.out.println("Nomes: Bruno Chanan e Lucas Simon Susin");
 					break;
 				case 2:
-					listaRuas.navegar(listaRuas);
+					listaRuas.navegar();
 					break;
 				case 3:
 					menuConsultas(listaRuas);
@@ -101,13 +101,13 @@ public class Menu {
 			System.out.println("*************************************************");
 			switch (opcao) {
 				case 1:
-					listaRuas.getRuaComMaisAcidentes(listaRuas);
+					listaRuas.getRuaComMaisAcidentes();
 					break;
 				case 2:
 					String x = "";
 					System.out.println("\nDigite o nome da 'rua' que você deseja buscar o dia da semana que mais teve acidentes\n");
 					x = scan.nextLine();
-					if(!listaRuas.diaSemanaMaisAcidentes(listaRuas, x)) {
+					if(!listaRuas.diaSemanaMaisAcidentes(x)) {
 						System.out.println("\nNão foi encontrado nada com este nome!\n");
 					}
 					break;
@@ -120,6 +120,9 @@ public class Menu {
 		} while (opcao != 3);
 	}
 
+	/**
+	 * Menu de opções do submenu consultas
+	 */
 	private void apresentaMenuOpcoesConsultas() {
 		System.out.println("\n                                         ### Você selecionou: Consultas! ###");
 		System.out
