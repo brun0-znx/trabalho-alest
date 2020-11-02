@@ -62,40 +62,27 @@ public class ListaRuas {
                 //newNode.add(a);
             }
         }
-        ordena();
+        //ordena();
     }
 
     /**
      * Ordena as ruas em ordem alfabética
      */
     private void ordena() {
-        /*Node aux = header.next; 
+        Node aux = header.next;  
+        String nomeRua = aux.nome;
+        String nomeRuaNodo = "";
+        
+        while (aux != trailer) {
+            if(aux.next != trailer) {
+                nomeRuaNodo = aux.next.nome;
+            }
+            if (nomeRua.compareTo(nomeRuaNodo) < 0) { 
+                // s1 vem antes de s2
                 
-                while(aux != trailer) {
-                    
-                    String s1 = a.getNomeCompleto();
-                    String s2 = aux.nome;
-                    if(s1.compareTo(s2) < 0) {  // s1 vem antes de s2
-                        
-                        n.next = aux;      
-                        n.prev = aux.prev; 
-                        n.prev.next = n;
-                        aux.prev = n;
-
-                        count++;
-                        break;
-                    }
-                    if(aux.next == trailer) { 
-                        n.next = trailer;
-                        n.prev = trailer.prev;
-                        n.prev.next = n;
-                        trailer.prev = n;
-                
-                        count++;
-                        break;
-                    }
-                    aux = aux.next;
-                }  */
+            }
+            aux = aux.next;
+        }  
     }
 
     /**
