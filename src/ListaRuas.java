@@ -59,7 +59,7 @@ public class ListaRuas {
             n.add(a);
         }  
         else {  
-            if(!encontraRuaIgual(a)) {
+            if(encontraRuaIgual(a).equals("false")) {
                 while(aux != trailer && adicionado == false) {
                     if(aux.nome.compareTo(novo) > 0) { // s2 vem antes
                         Node ref = getNodeRef(index); // "caminha" ate a posicao index
@@ -86,6 +86,10 @@ public class ListaRuas {
                 }
             } else {
                 // se encontrar a rua igual
+                String indexx = encontraRuaIgual(a);
+                int indexxx = Integer.parseInt(indexx);
+                Node ref = getNodeRef(indexxx); // "caminha" ate a posicao index
+                ref.add(a);
             }
         }
     }
@@ -94,20 +98,24 @@ public class ListaRuas {
      * Encontra rua com mesmo nome
      * @return true se encontrou ou false se não encontrou
      */
-    public boolean encontraRuaIgual(Acidente a) {
+    public String encontraRuaIgual(Acidente a) {
         Node aux = header.next; 
         String nome = a.getNomeCompleto();
+        int index = 0;
+        String indexx = "";
 
         while(aux != trailer) {
             if(aux.nome.equals(nome)) { 
                 //System.out.println(aux.nome);
                 //System.out.println(a.getNomeCompleto());
-                return true;
+                indexx = String.valueOf(index);
+                return indexx;
             }
             aux = aux.next;
+            index++;
         }  
        
-        return false;
+        return "false";
     }
 
     /**
