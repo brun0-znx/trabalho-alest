@@ -26,6 +26,7 @@ public class Menu {
 			switch (opcao) {
 				case 1:
 					System.out.println("Sistema de consultas sobre os acidentes de trânsito de Porto Alegre");
+					System.out.println("Nomes: Bruno Chanan e Lucas Simon Susin");
 					break;
 				case 2:
 					listaRuas.navegar(listaRuas);
