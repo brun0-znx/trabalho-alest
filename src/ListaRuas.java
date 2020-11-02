@@ -7,8 +7,8 @@ public class ListaRuas {
         public Node next;
         public Node prev;
 
-        public Node(String umNomeCompleto) {
-            this.nome = umNomeCompleto;
+        public Node(String umNome) {
+            this.nome = umNome;
             next = null;
             prev = null;
             listaAcidentes = new ListaAcidentes();
@@ -17,7 +17,7 @@ public class ListaRuas {
         public void add(Acidente a) {
             listaAcidentes.addAcidente(a);
         }
-        //...
+        
     }
 
     private Node header;
@@ -62,26 +62,24 @@ public class ListaRuas {
                 //newNode.add(a);
             }
         }
-        //ordena();
+        ordena();
     }
 
     /**
      * Ordena as ruas em ordem alfabética
      */
     private void ordena() {
-        Node aux = header.next;  
-        String nomeRua = aux.nome;
-        String nomeRuaNodo = "";
+        current = null;
+        Node index = null;  
+        String temp;  
         
-        while (aux != trailer) {
-            if(aux.next != trailer) {
-                nomeRuaNodo = aux.next.nome;
-            }
-            if (nomeRua.compareTo(nomeRuaNodo) < 0) { 
-                // s1 vem antes de s2
+        //Current will point to head  
+        for(current = header; current.next != null; current = current.next) {  
+            //Index will point to node next to current  
+            for(index = current.next; index != null; index = index.next) {  
+                //If current's data is greater than index's data, swap the data of current and index  
                 
-            }
-            aux = aux.next;
+            }  
         }  
     }
 
