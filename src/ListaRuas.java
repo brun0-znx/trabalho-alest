@@ -223,7 +223,7 @@ public class ListaRuas {
             aux = aux.next;
         }
         System.out.println("A 'rua' com mais acidentes é: " + nomeRua);
-        System.out.println("Com " + numeroMaximo + " acidentes!");
+        System.out.println("Com " + numeroMaximo + "!");
     } 
 
     /**

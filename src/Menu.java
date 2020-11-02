@@ -128,7 +128,7 @@ public class Menu {
 		System.out
 				.println("                   ========================================================================");
 		System.out
-				.println("                  |     1 - RUA/AVENIDA/TRAVESSIA com mais acidentes                      |");
+				.println("                  |     1 - 'Rua' com maior número de acidentes                           |");
 		System.out
 				.println("                  |     2 - Dia da semana em X local que mais ocorreram acidentes         |");
 		System.out
