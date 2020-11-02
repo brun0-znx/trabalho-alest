@@ -105,7 +105,7 @@ public class Executa {
             listaRuas.addRua(a);
             // System.out.println(logradouro + " " + nomeLog + "; " + tipoAcidente + "; " + data.toString() + "; " + tempo + "; " + turno + "; " + regiao); 
         }
-        listaRuas.printNodes();
+        System.out.println(listaRuas);
         
     }
 
