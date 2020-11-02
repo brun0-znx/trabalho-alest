@@ -72,12 +72,27 @@ public class ListaAcidentes {
         StringBuilder s = new StringBuilder();
         Node aux = head;
         for (int i = 0; i < count; i++) {
-            s.append("   " + "Data: " + aux.element.getData() + "\n");
+            s.append("   " + "Tipo do acidente: " + aux.element.getTipoAcidente() + "\n");
+            s.append("   " + "Data e hora: " + aux.element.getData() + "\n");
+            s.append("   " + "Dia da semana: " + aux.element.getDiaSemana() + "\n");
+            s.append("   " + "Feridos: " + aux.element.getFeridos() + "\n");
+            s.append("   " + "Fatais: " + aux.element.getFatais() + "\n");
+            s.append("   " + "Automóveis: " + aux.element.getAuto() + "\n");
+            s.append("   " + "Táxis: " + aux.element.getTaxis() + "\n");
+            s.append("   " + "Lotação: " + aux.element.getLotacao() + "\n");
+            s.append("   " + "Ônibus urbano: " + aux.element.getOnibusUrb() + "\n");
+            s.append("   " + "Ônibus interestadual: " + aux.element.getOnibusInt() + "\n");
+            s.append("   " + "Caminhão: " + aux.element.getCaminhao() + "\n");
+            s.append("   " + "Moto: " + aux.element.getMoto() + "\n");
+            s.append("   " + "Carroça: " + aux.element.getCarroca() + "\n");
+            s.append("   " + "Bicicleta: " + aux.element.getBicicleta() + "\n");
+            s.append("   " + "Tempo: " + aux.element.getTempo() + "\n");
             s.append("   " + "Turno: " + aux.element.getTurno() + "\n");
+            s.append("   " + "Região: " + aux.element.getRegiao() + "\n");
+            s.append("-----------------------------\n");
     
             aux = aux.next;
         }
         return s.toString();
     }    
-
 }
