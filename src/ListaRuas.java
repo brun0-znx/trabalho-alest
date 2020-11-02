@@ -211,19 +211,6 @@ public class ListaRuas {
      */
     public String getRuaComMaisAcidentes() {
         return "";
-    }
-
-    @Override
-    public String toString()
-    {
-        StringBuilder s = new StringBuilder();
-        Node aux = header.next;
-        for (int i = 0; i < count; i++) {
-            s.append(aux.nome.toString());
-            s.append("\n");
-            aux = aux.next;
-        }
-        return s.toString();
-    }    
+    } 
 
 }
