@@ -58,6 +58,23 @@ public class ListaAcidentes {
     }
 
     /**
+    * Retorna o o dia da semana em que mais ocorreram acidentes para uma determinada 'rua'
+    * @return o dia o dia da semana em que mais ocorreram acidentes para uma determinada 'rua'
+    */
+    public String getDiaSemanaTotalAcidentes() {
+        String dia = "";
+
+        Node aux = head;
+        for(int i = 0; i < count; i++) {
+            if(aux.element.getTotalAcidentes() > 0) {
+                dia = aux.element.getDiaSemana();
+            }
+            aux = aux.next;
+        }
+        return dia;
+    }
+
+    /**
     * Retorna o número de elementos da lista
     * @return o número de elementos da lista
     */

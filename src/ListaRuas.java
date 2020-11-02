@@ -235,7 +235,7 @@ public class ListaRuas {
 
         while(aux != trailer) {
             if(aux.nome.equals(x)) {
-                System.out.println(aux.nome);
+                System.out.println(aux.listaAcidentes.getDiaSemanaTotalAcidentes());
                 return true;
             }
             aux = aux.next;
