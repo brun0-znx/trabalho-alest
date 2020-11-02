@@ -224,4 +224,20 @@ public class ListaRuas {
         System.out.println("Com " + numeroMaximo + " acidentes!");
     } 
 
+    /**
+     * Retorna o dia da semana em que mais ocorreram acidentes para uma determinada 'rua'
+     * @return true se encontrou o nome da rua pesquisada ou false se não encontrou
+     */
+    public boolean diaSemanaMaisAcidentes(String x) {
+        Node aux = header.next;
+
+        while(aux != trailer) {
+            if(aux.nome.equals(x)) {
+                System.out.println(aux.nome);
+                return true;
+            }
+            aux = aux.next;
+        }
+        return false;
+    }
 }
