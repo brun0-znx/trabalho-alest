@@ -166,7 +166,7 @@ public class ListaRuas {
 
         System.out.println("1 - Avançar | 2 - Retroceder | Qualquer número - voltar");
 
-        while(aux != trailer) {
+        while(aux != trailer.next) {
             fimLista = false;
             if(aux.nome == null) {
                 System.out.println("Fim da lista!");
