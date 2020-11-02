@@ -72,8 +72,9 @@ public class ListaAcidentes {
         StringBuilder s = new StringBuilder();
         Node aux = head;
         for (int i = 0; i < count; i++) {
-            s.append(aux.element.getTempo());
-            s.append(" ; ");
+            s.append("   " + "Data: " + aux.element.getData() + "\n");
+            s.append("   " + "Turno: " + aux.element.getTurno() + "\n");
+    
             aux = aux.next;
         }
         return s.toString();
