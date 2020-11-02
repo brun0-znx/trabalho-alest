@@ -106,8 +106,9 @@ public class ListaAcidentes {
                 if(opcao == 3 && (aux.next != null)) {
                     aux = aux.next;
                 } else if(opcao == 3 && (aux.next == null)){
-                    System.out.print("\nFim da lista de acidentes desta rua!");
+                    System.out.print("\nFim da lista de acidentes desta rua!\n");
                     System.out.print("Passando para a próxima rua...\n");
+                    System.out.print("\n");
                     return true;
                 } else {
                     break;

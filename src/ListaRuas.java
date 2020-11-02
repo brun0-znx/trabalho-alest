@@ -18,16 +18,11 @@ public class ListaRuas {
         public void add(Acidente a) {
             listaAcidentes.addAcidente(a);
         }
-
-        public void mostraInformacoes() {
-            System.out.println(listaAcidentes.toString());
-        }
         
     }
 
     private Node header;
     private Node trailer;
-    private Node current;
     private int count;
     private int moto;
 
@@ -172,6 +167,7 @@ public class ListaRuas {
                 fimLista = true;
             } else {
                 System.out.println(aux.nome + ":");
+                System.out.println("Total de acidentes de moto desta 'rua': " + aux.listaAcidentes.getQuantosAcidentesMoto());
                 aux.listaAcidentes.mostraPrimeiroAcidente();
                 opcao = scan.nextInt();
                 //aux.listaAcidentes.mostraAcidentes(opcao);
