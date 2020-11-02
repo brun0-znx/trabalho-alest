@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class ListaAcidentes {
 
     private class Node {
@@ -18,6 +19,7 @@ public class ListaAcidentes {
     private Node head;
     private Node tail;
     private int count;
+    private int sizeTotal;
     
     /**
      * Construtor da lista.
@@ -65,6 +67,66 @@ public class ListaAcidentes {
             aux = aux.next;
         }
         return contaAcidenteMoto;
+    }
+
+    public void mostraAcidentes() {
+        Node aux = head.next;
+        Scanner scan = new Scanner(System.in);
+        boolean sair = false;
+        int opcao = -1;
+
+        for (int i = 1; i < count; i++) {
+            if(!sair) {
+                System.out.print("   " + "Tipo do acidente: " + aux.element.getTipoAcidente() + "\n");
+                System.out.print("   " + "Data e hora: " + aux.element.getData() + "\n");
+                System.out.print("   " + "Dia da semana: " + aux.element.getDiaSemana() + "\n");
+                System.out.print("   " + "Feridos: " + aux.element.getFeridos() + "\n");
+                System.out.print("   " + "Fatais: " + aux.element.getFatais() + "\n");
+                System.out.print("   " + "Automóveis: " + aux.element.getAuto() + "\n");
+                System.out.print("   " + "Táxis: " + aux.element.getTaxis() + "\n");
+                System.out.print("   " + "Lotação: " + aux.element.getLotacao() + "\n");
+                System.out.print("   " + "Ônibus urbano: " + aux.element.getOnibusUrb() + "\n");
+                System.out.print("   " + "Ônibus interestadual: " + aux.element.getOnibusInt() + "\n");
+                System.out.print("   " + "Caminhão: " + aux.element.getCaminhao() + "\n");
+                System.out.print("   " + "Moto: " + aux.element.getMoto() + "\n");
+                System.out.print("   " + "Carroça: " + aux.element.getCarroca() + "\n");
+                System.out.print("   " + "Bicicleta: " + aux.element.getBicicleta() + "\n");
+                System.out.print("   " + "Tempo: " + aux.element.getTempo() + "\n");
+                System.out.print("   " + "Turno: " + aux.element.getTurno() + "\n");
+                System.out.print("   " + "Região: " + aux.element.getRegiao() + "\n");
+                System.out.print("-----------------------------\n");
+            }
+            
+            opcao = scan.nextInt();
+            if(opcao == 3 && (aux.next != null)) {
+                aux = aux.next;
+            } else {
+                break;
+            }
+        }
+    }
+
+    public void mostraPrimeiroAcidente() {
+        Node aux = head;
+
+        System.out.print("   " + "Tipo do acidente: " + aux.element.getTipoAcidente() + "\n");
+        System.out.print("   " + "Data e hora: " + aux.element.getData() + "\n");
+        System.out.print("   " + "Dia da semana: " + aux.element.getDiaSemana() + "\n");
+        System.out.print("   " + "Feridos: " + aux.element.getFeridos() + "\n");
+        System.out.print("   " + "Fatais: " + aux.element.getFatais() + "\n");
+        System.out.print("   " + "Automóveis: " + aux.element.getAuto() + "\n");
+        System.out.print("   " + "Táxis: " + aux.element.getTaxis() + "\n");
+        System.out.print("   " + "Lotação: " + aux.element.getLotacao() + "\n");
+        System.out.print("   " + "Ônibus urbano: " + aux.element.getOnibusUrb() + "\n");
+        System.out.print("   " + "Ônibus interestadual: " + aux.element.getOnibusInt() + "\n");
+        System.out.print("   " + "Caminhão: " + aux.element.getCaminhao() + "\n");
+        System.out.print("   " + "Moto: " + aux.element.getMoto() + "\n");
+        System.out.print("   " + "Carroça: " + aux.element.getCarroca() + "\n");
+        System.out.print("   " + "Bicicleta: " + aux.element.getBicicleta() + "\n");
+        System.out.print("   " + "Tempo: " + aux.element.getTempo() + "\n");
+        System.out.print("   " + "Turno: " + aux.element.getTurno() + "\n");
+        System.out.print("   " + "Região: " + aux.element.getRegiao() + "\n");
+        System.out.print("-----------------------------\n");
     }
 
     @Override

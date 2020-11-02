@@ -162,7 +162,8 @@ public class ListaRuas {
         int opcao = -1;
         boolean fimLista = false;
 
-        System.out.println("1 - Avançar | 2 - Retroceder | Qualquer número - voltar");
+        System.out.println("1 - Avançar RUA | 2 - Retroceder RUA | Qualquer número - VOLTAR");
+        System.out.println("3 - Avançar ACIDENTE | Qualquer número - VOLTAR");
 
         while(aux != trailer.next) {
             fimLista = false;
@@ -171,10 +172,14 @@ public class ListaRuas {
                 fimLista = true;
             } else {
                 System.out.println(aux.nome + ":");
-                System.out.println(aux.listaAcidentes.toString());
+                aux.listaAcidentes.mostraPrimeiroAcidente();
+                opcao = scan.nextInt();
+                //aux.listaAcidentes.mostraAcidentes(opcao);
+                if(opcao == 3) {
+                    aux.listaAcidentes.mostraAcidentes();
+                }
             }
             
-            opcao = scan.nextInt();
             if(opcao == 1) {
                 aux = aux.next;
             } else if(opcao == 2 && fimLista == false) {
