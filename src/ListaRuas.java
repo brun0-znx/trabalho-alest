@@ -170,9 +170,11 @@ public class ListaRuas {
                 System.out.println("Total de acidentes de moto desta 'rua': " + aux.listaAcidentes.getQuantosAcidentesMoto());
                 aux.listaAcidentes.mostraPrimeiroAcidente();
                 opcao = scan.nextInt();
-                //aux.listaAcidentes.mostraAcidentes(opcao);
+                
                 if(opcao == 3) {
                     if(aux.listaAcidentes.mostraAcidentes()) {
+                        opcao = 1;
+                    } else {
                         opcao = 1;
                     }
                 }
